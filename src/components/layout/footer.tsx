@@ -84,9 +84,11 @@ export default function Footer() {
             <h3 className="text-lg font-semibold text-white mb-4">Our Locations</h3>
              <p className="text-sm mb-2">Visit us in Bangalore or Ranchi.</p>
             {/* Placeholder for a small map or an image */}
-            <div className="aspect-video bg-slate-700 rounded-md flex items-center justify-center">
-                <MapPin className="h-10 w-10 text-primary" />
-            </div>
+            <Link href="/#centers">
+              <div className="aspect-video bg-slate-700 rounded-md flex items-center justify-center hover:bg-slate-600 transition-colors cursor-pointer">
+                  <MapPin className="h-10 w-10 text-primary" />
+              </div>
+            </Link>
           </div>
         </div>
 
