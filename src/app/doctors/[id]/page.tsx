@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
@@ -10,6 +11,8 @@ import Link from 'next/link';
 interface DoctorPageProps {
   params: Promise<{ id: string }>;
 }
+
+const CLICK4APPOINTMENT_BASE_URL = "https://www.dummyclick4appointment.com/booking/DUMMY_CLINIC_GROUP_ID";
 
 export async function generateStaticParams() {
   const doctors = await getDoctors();
@@ -56,6 +59,8 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
     notFound();
   }
 
+  const appointmentUrl = `${CLICK4APPOINTMENT_BASE_URL}?doctorId=${doctor.id}`;
+
   return (
     <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
       <Card className="overflow-hidden shadow-xl">
@@ -98,7 +103,7 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
               </div>
               <div className="pt-4">
                 <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Link href="/#contact">
+                  <Link href={appointmentUrl} target="_blank" rel="noopener noreferrer">
                     <Phone className="mr-2 h-5 w-5" /> Book Appointment with Dr. {doctor.name.split(' ')[1]}
                   </Link>
                 </Button>

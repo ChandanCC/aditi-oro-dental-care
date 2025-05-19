@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -16,6 +17,8 @@ const navLinks = [
   { href: '/#centers', label: 'Our Centers', sectionId: 'centers' },
   { href: '/#contact', label: 'Contact Us', sectionId: 'contact' },
 ];
+
+const CLICK4APPOINTMENT_BASE_URL = "https://www.dummyclick4appointment.com/booking/DUMMY_CLINIC_GROUP_ID";
 
 export default function Header() {
   const pathname = usePathname();
@@ -100,7 +103,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <Button asChild className="hidden lg:flex bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href="tel:+919902780440">
+            <Link href={CLICK4APPOINTMENT_BASE_URL} target="_blank" rel="noopener noreferrer">
               <Phone className="mr-2 h-4 w-4" />
               Book Appointment
             </Link>
@@ -136,7 +139,7 @@ export default function Header() {
                   ))}
                 </nav>
                 <Button asChild className="mt-auto bg-primary hover:bg-primary/90 text-primary-foreground">
-                  <Link href="tel:+919902780440" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Link href={CLICK4APPOINTMENT_BASE_URL} target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)}>
                     <Phone className="mr-2 h-4 w-4" />
                     Book Appointment
                   </Link>

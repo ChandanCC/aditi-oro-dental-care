@@ -1,9 +1,12 @@
+
 'use client';
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+
+const CLICK4APPOINTMENT_BASE_URL = "https://www.dummyclick4appointment.com/booking/DUMMY_CLINIC_GROUP_ID";
 
 export default function HeroSection() {
   return (
@@ -31,7 +34,7 @@ export default function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg transform hover:scale-105 transition-transform duration-300" asChild>
-                <Link href="/#contact">
+                <Link href={CLICK4APPOINTMENT_BASE_URL} target="_blank" rel="noopener noreferrer">
                   Book an Appointment <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
