@@ -14,6 +14,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NODE_ENV_NAME === 'production' 
+    ? 'https://chandancc.github.io/aditi-oro-dental-care'
+    : 'http://localhost:3000'),
   title: 'Aditi Oro Dental Clinic - Best Dental Care in Ranchi & Bangalore',
   description: 'Aditi Oro Dental Clinic offers top-quality dental services in Ranchi and Bangalore. Our expert dentists provide comprehensive care for a healthy smile.',
   keywords: 'dental clinic, dentist, oral care, Ranchi, Bangalore, Aditi Oro Dental, teeth whitening, root canal, implants',
@@ -21,11 +24,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Aditi Oro Dental Clinic - Ranchi & Bangalore',
     description: 'Expert dental care services. Visit our clinics in Ranchi and Bangalore for a healthy, beautiful smile.',
-    url: 'https://chandancc.github.io/aditi-oro-dental-care/',
+    url: '/',
     siteName: 'Aditi Oro Dental Clinic',
     images: [
       {
-        url: '/aditi-oro-dental-care/images/og-image.png',
+        url: '/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Aditi Oro Dental Clinic Services',
@@ -38,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Aditi Oro Dental Clinic - Top Dentists in Ranchi & Bangalore',
     description: 'Your trusted partner for comprehensive dental care. Book an appointment today!',
-    images: ['/aditi-oro-dental-care/images/twitter-image.png'],
+    images: ['/images/twitter-image.png'],
   },
   robots: {
     index: true,

@@ -1,5 +1,5 @@
 import type {NextConfig} from 'next';
-console.log(process.env.NODE_ENV_NAME);
+console.log("***###", process.env.NODE_ENV_NAME) ;
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
