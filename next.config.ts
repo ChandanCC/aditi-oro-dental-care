@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
     ],
     unoptimized: true,
   },
-  trailingSlash: false,
+  trailingSlash: true,
   // Ensure proper asset handling for production
   output: 'export',
   distDir: 'out',

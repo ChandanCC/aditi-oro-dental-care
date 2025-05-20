@@ -10,6 +10,7 @@ const inter = Inter({
   display: 'swap',
   variable: '--font-inter',
   preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {
@@ -20,11 +21,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Aditi Oro Dental Clinic - Ranchi & Bangalore',
     description: 'Expert dental care services. Visit our clinics in Ranchi and Bangalore for a healthy, beautiful smile.',
-    url: 'https://aditiorodentalcare.com/', // Replace with actual URL when deployed
+    url: 'https://chandancc.github.io/aditi-oro-dental-care/',
     siteName: 'Aditi Oro Dental Clinic',
     images: [
       {
-        url: '/images/og-image.png', // Replace with actual OG image path
+        url: '/aditi-oro-dental-care/images/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Aditi Oro Dental Clinic Services',
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Aditi Oro Dental Clinic - Top Dentists in Ranchi & Bangalore',
     description: 'Your trusted partner for comprehensive dental care. Book an appointment today!',
-    images: ['/images/twitter-image.png'], // Replace with actual Twitter image path
+    images: ['/aditi-oro-dental-care/images/twitter-image.png'],
   },
   robots: {
     index: true,
@@ -60,6 +61,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${inter.className} scroll-smooth`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="font-sans antialiased flex flex-col min-h-screen bg-background text-foreground">
         <Header />
         <main className="flex-grow">
