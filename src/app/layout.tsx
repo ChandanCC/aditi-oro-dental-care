@@ -7,7 +7,9 @@ import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({
   subsets: ['latin'],
+  display: 'swap',
   variable: '--font-inter',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -57,8 +59,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} font-sans antialiased flex flex-col min-h-screen`}>
+    <html lang="en" className={`${inter.variable} ${inter.className} scroll-smooth`}>
+      <body className="font-sans antialiased flex flex-col min-h-screen bg-background text-foreground">
         <Header />
         <main className="flex-grow">
           {children}

@@ -7,7 +7,7 @@ import { MapPin, Phone, Clock, CalendarDays, Building } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 interface ClinicPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateStaticParams() {
@@ -18,7 +18,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ClinicPageProps): Promise<Metadata> {
-  const clinic = await getClinicById(params.id);
+  const { id } = await params;
+  const clinic = await getClinicById(id);
 
   if (!clinic) {
     return {
@@ -47,7 +48,8 @@ export async function generateMetadata({ params }: ClinicPageProps): Promise<Met
 }
 
 export default async function ClinicPage({ params }: ClinicPageProps) {
-  const clinic = await getClinicById(params.id);
+  const { id } = await params;
+  const clinic = await getClinicById(id);
 
   if (!clinic) {
     notFound();

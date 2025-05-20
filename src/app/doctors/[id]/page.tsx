@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
 interface DoctorPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function generateStaticParams() {
@@ -19,7 +19,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: DoctorPageProps): Promise<Metadata> {
-  const doctor = await getDoctorById(params.id);
+  const { id } = await params;
+  const doctor = await getDoctorById(await id);
 
   if (!doctor) {
     return {
@@ -48,7 +49,8 @@ export async function generateMetadata({ params }: DoctorPageProps): Promise<Met
 }
 
 export default async function DoctorPage({ params }: DoctorPageProps) {
-  const doctor = await getDoctorById(params.id);
+  const { id } = await params;
+  const doctor = await getDoctorById(id);
 
   if (!doctor) {
     notFound();
