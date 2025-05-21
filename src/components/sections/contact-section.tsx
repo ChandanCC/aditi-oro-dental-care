@@ -172,7 +172,7 @@ export default function ContactSection() {
             <div className="aspect-[16/9] rounded-lg overflow-hidden shadow-xl">
                {/* Placeholder for a map, e.g. Google Maps embed */}
               <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0000000000005!2d77.594562!3d12.971599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDU4JzE3LjgiTiA3N8KwMzUnNDQuNCJF!5e0!3m2!1sen!2sin!4v1628600000000!5m2!1sen!2sin" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.6725423351418!2d77.6328301751853!3d12.928755615815943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1502d6283d71%3A0x1daefefcea3eb563!2sAditi%20Oro%20Dental%20Care!5e0!3m2!1sen!2sin!4v1747836752198!5m2!1sen!2sin" 
                 width="100%" 
                 height="100%" 
                 style={{border:0}} 
