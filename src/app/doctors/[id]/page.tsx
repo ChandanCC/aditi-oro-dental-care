@@ -12,7 +12,7 @@ interface DoctorPageProps {
   params: Promise<{ id: string }>;
 }
 
-const CLICK4APPOINTMENT_BASE_URL = "https://www.dummyclick4appointment.com/booking/DUMMY_CLINIC_GROUP_ID";
+const CLICK4APPOINTMENT_BASE_URL = "https://click4appointment.com/book-appointment-guest/4190";
 
 export async function generateStaticParams() {
   const doctors = await getDoctors();
@@ -59,7 +59,7 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
     notFound();
   }
 
-  const appointmentUrl = `${CLICK4APPOINTMENT_BASE_URL}?doctorId=${doctor.id}`;
+  const appointmentUrl = `${CLICK4APPOINTMENT_BASE_URL}/${doctor.id}`;
 
   return (
     <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">

@@ -1,3 +1,4 @@
+
 import HeroSection from '@/components/sections/hero-section';
 import AboutSection from '@/components/sections/about-section';
 import ServicesSection from '@/components/sections/services-section';
@@ -17,6 +18,7 @@ export default async function HomePage() {
       <AboutSection />
       <ServicesSection />
       <DoctorsSection doctors={doctors} />
+      {/* CentersSection is now a client component, but it's fine to pass server-fetched props to it */}
       <CentersSection clinics={clinics} />
       <TestimonialsSection />
       <ContactSection />

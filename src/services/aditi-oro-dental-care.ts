@@ -1,3 +1,4 @@
+
 /**
  * Represents a dental clinic.
  */
@@ -13,7 +14,7 @@ export interface Clinic {
   /**
    * The city where the clinic is located.
    */
-  city: string;
+  city: 'Bangalore' | 'Ranchi'; // Made city type more specific
   /**
    * The address of the clinic.
    */
@@ -73,39 +74,46 @@ const slugify = (text: string): string => {
 
 const clinicsData: Omit<Clinic, 'id'>[] = [
   {
-    name: 'Aditi Oro Dental Clinic - Bangalore 1',
+    name: 'Aditi Oro Dental Clinic - Whitefield',
     city: 'Bangalore',
     address: '123, Whitefield Main Road, Bangalore, Karnataka 560066',
     phoneNumber: '+91 98765 43210',
     openingHours: 'Mon-Sat: 9:00 AM - 8:00 PM',
   },
   {
-    name: 'Aditi Oro Dental Clinic - Bangalore 2',
+    name: 'Aditi Oro Dental Clinic - Indiranagar',
     city: 'Bangalore',
     address: '456, Indiranagar 100 Feet Road, Bangalore, Karnataka 560038',
     phoneNumber: '+91 98765 43211',
     openingHours: 'Mon-Sat: 9:30 AM - 8:30 PM',
   },
   {
-    name: 'Aditi Oro Dental Clinic - Bangalore 3',
+    name: 'Aditi Oro Dental Clinic - Koramangala',
     city: 'Bangalore',
     address: '789, Koramangala 5th Block, Bangalore, Karnataka 560095',
     phoneNumber: '+91 98765 43212',
     openingHours: 'Mon-Sat: 10:00 AM - 7:00 PM',
   },
   {
-    name: 'Aditi Oro Dental Clinic - Bangalore 4',
+    name: 'Aditi Oro Dental Clinic - Jayanagar',
     city: 'Bangalore',
     address: '101, Jayanagar 4th Block, Bangalore, Karnataka 560011',
     phoneNumber: '+91 98765 43213',
     openingHours: 'Mon-Fri: 9:00 AM - 6:00 PM, Sat: 9:00 AM - 2:00 PM',
   },
   {
-    name: 'Aditi Oro Dental Clinic - Ranchi Main',
+    name: 'Aditi Oro Dental Clinic - Main Road Ranchi',
     city: 'Ranchi',
     address: '202, Main Road, Ranchi, Jharkhand 834001',
     phoneNumber: '+91 99027 80440',
     openingHours: 'Mon-Sat: 10:00 AM - 7:30 PM',
+  },
+   {
+    name: 'Aditi Oro Dental Clinic - Ashok Nagar Ranchi',
+    city: 'Ranchi',
+    address: '505, Ashok Nagar, Road No. 4, Ranchi, Jharkhand 834002',
+    phoneNumber: '+91 99027 80441',
+    openingHours: 'Mon-Sat: 9:00 AM - 6:00 PM',
   },
 ];
 
@@ -114,14 +122,14 @@ const doctorsData: Omit<Doctor, 'id'>[] = [
     name: 'Dr. John Doe',
     specialization: 'General Dentist',
     profilePicture: '/images/doctor-john-doe.jpg',
-    clinics: ['Aditi Oro Dental Clinic - Bangalore 1'],
+    clinics: ['Aditi Oro Dental Clinic - Whitefield', 'Aditi Oro Dental Clinic - Indiranagar'],
     bio: 'Dr. John Doe is a highly experienced General Dentist with over 10 years of practice. He is passionate about providing comprehensive dental care to patients of all ages. Dr. Doe graduated from the prestigious Bangalore Institute of Dental Sciences and has since attended numerous workshops and conferences to stay updated with the latest advancements in dentistry. He specializes in preventive care, restorative treatments, and cosmetic dentistry. Patients appreciate his gentle approach and his ability to explain complex dental procedures in a simple and understandable manner. In his free time, Dr. Doe enjoys reading and spending time with his family.',
   },
   {
     name: 'Dr. Jane Smith',
     specialization: 'Orthodontist',
     profilePicture: '/images/doctor-jane-smith.jpg',
-    clinics: ['Aditi Oro Dental Clinic - Bangalore 2', 'Aditi Oro Dental Clinic - Ranchi Main'],
+    clinics: ['Aditi Oro Dental Clinic - Koramangala', 'Aditi Oro Dental Clinic - Main Road Ranchi'],
     bio: 'Dr. Jane Smith is a renowned Orthodontist known for her expertise in correcting misaligned teeth and jaws. She completed her Masters in Orthodontics from Manipal College of Dental Sciences and has transformed thousands of smiles. Dr. Smith is proficient in various orthodontic techniques, including traditional braces, clear aligners, and lingual braces. She is committed to providing personalized treatment plans to achieve optimal results for her patients. Her friendly demeanor and dedication to patient comfort make her a favorite among both children and adults. Dr. Smith is an active member of the Indian Orthodontic Society and regularly participates in CDE programs.',
   },
 ];
@@ -136,7 +144,7 @@ export async function getClinics(): Promise<Clinic[]> {
   await new Promise(resolve => setTimeout(resolve, 100));
   return clinicsData.map(clinic => ({
     ...clinic,
-    id: slugify(clinic.name),
+    id: slugify(`${clinic.city}-${clinic.name}`), // Ensure unique IDs by including city
   }));
 }
 

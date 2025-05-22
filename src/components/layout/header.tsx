@@ -18,7 +18,7 @@ const navLinks = [
   { href: '/#contact', label: 'Contact Us', sectionId: 'contact' },
 ];
 
-const CLICK4APPOINTMENT_BASE_URL = "https://www.dummyclick4appointment.com/booking/DUMMY_CLINIC_GROUP_ID";
+const CLICK4APPOINTMENT_BASE_URL = "https://click4appointment.com/book-appointment-guest/4190";
 
 export default function Header() {
   const pathname = usePathname();

@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 console.log("***###", process.env.NODE_ENV_NAME) ;
 const nextConfig: NextConfig = {
@@ -9,6 +10,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        port: '',
+        pathname: '/**',
+      }
     ],
     unoptimized: true,
   },

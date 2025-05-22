@@ -6,7 +6,7 @@ import { ArrowRight, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const CLICK4APPOINTMENT_BASE_URL = "https://www.dummyclick4appointment.com/booking/DUMMY_CLINIC_GROUP_ID";
+const CLICK4APPOINTMENT_BASE_URL = "https://click4appointment.com/book-appointment-guest/4190";
 
 export default function HeroSection() {
   return (
